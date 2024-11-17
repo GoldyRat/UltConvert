@@ -65,19 +65,19 @@ def check_inputs(init_number, init_base, target_base):
 
     # Check if the input base is valid
     if init_base < 2 or init_base > len(char_map):
-        error = "La base d'entrée n'est pas valide. Le programme ne supporte que jusqu'à la base " + str(len(char_map))
+        error = "La base d'entrée n'est pas valide. Le programme ne supporte que de la base 2 jusqu'à la base " + str(len(char_map))
         return error  # Return immediately if there's an error
     
     # Check if the target base is valid
     if target_base < 2 or target_base > len(char_map):
-        error = "La base d'arrivée n'est pas valide. Le programme ne supporte que jusqu'à la base " + str(len(char_map))
+        error = "La base d'arrivée n'est pas valide. Le programme ne supporte que de la base 2 jusqu'à la base " + str(len(char_map))
         return error  # Return immediately if there's an error
 
     # Check if the init_number is valid for the specified init_base
     valid_chars = char_map[:init_base]  # Get valid characters for the input base
     for c in init_number:
         if c not in valid_chars:
-            error = "Le nombre d'entrée n'est pas valide"
+            error = f"Le nombre d'entrée n'est pas valide. Le caractère {c} n'est pas autorisé dans la base {init_base}"
             break  # Exit the loop on the first error
 
     return error  # Return None if there are no errors
